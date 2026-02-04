@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Record System - Padlan, Elijah Lean Eliska P.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: url('image_6487327-scaled.jpg') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+        
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #8B0000 0%, #DC143C 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-bottom: 5px solid #FFD700;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .programmer-info {
+            font-size: 1.1em;
+            opacity: 0.95;
+            margin-top: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .upload-section {
+            padding: 20px 30px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-bottom: 3px solid #dee2e6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        /* Buttons Styling */
+        .btn-upload {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+        
+        .btn-upload:hover {
+            background: linear-gradient(135deg, #218838 0%, #1aa179 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+        }
+        
+        .btn-download {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+        
+        .btn-download:hover {
+            background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+        }
+        
+        /* Input Section Layout */
+        .input-section {
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 3px solid #e9ecef;
+        }
+        
+        .input-section h2 {
+            color: #8B0000;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+        
+        /* Top Row Grid */
+        .input-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        /* Bottom Row Centering */
+        .centered-fields {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .input-field {
+            display: flex;
+            flex-direction: column;
+            min-width: 250px;
+        }
+        
+        .input-field label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #495057;
+            font-size: 14px;
+        }
+        
+        .input-field input {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .input-field input:focus {
+            outline: none;
+            border-color: #8B0000;
+            box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.1);
+        }
+        
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+        
+        .btn-add {
+            background: linear-gradient(135deg, #8B0000 0%, #DC143C 100%);
+            color: white;
+            padding: 14px 35px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
+        }
+        
+        .btn-add:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 0, 0, 0.4);
+        }
+        
+        /* Table Section */
+        .table-section {
+            padding: 30px;
+            overflow-x: auto;
+        }
+        
+        .table-section h2 {
+            color: #8B0000;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        thead {
+            background: linear-gradient(135deg, #8B0000 0%, #DC143C 100%);
+            color: white;
+        }
+        
+        th {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 3px solid #FFD700;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        tbody tr:hover {
+            background-color: #fff3cd;
+        }
+        
+        .stats {
+            padding: 20px 30px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-top: 3px solid #8B0000;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #8B0000 0%, #DC143C 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-top: 5px solid #FFD700;
+        }
+
+        @media (max-width: 768px) {
+            .input-field { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Student Record System</h1>
+            <div class="programmer-info">
+                Programmer: Padlan, Elijah Lean Eliska P. - 23-0169-574
+            </div>
+        </div>
+        
+        <div class="upload-section">
+            <input type="file" id="csvFileInput" accept=".csv" style="display: none;" onchange="uploadCSV()">
+            <button class="btn-upload" onclick="document.getElementById('csvFileInput').click()">📤 Upload CSV File</button>
+            <button class="btn-download" onclick="downloadCSV()">📥 Download CSV File</button>
+        </div>
+        
+        <div class="input-section">
+            <h2>➕ Add New Student</h2>
+            
+            <div class="input-group">
+                <div class="input-field">
+                    <label for="studentId">Student ID</label>
+                    <input type="text" id="studentId" placeholder="e.g., 123456789">
+                </div>
+                <div class="input-field">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" placeholder="Enter first name">
+                </div>
+                <div class="input-field">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" placeholder="Enter last name">
+                </div>
+                <div class="input-field">
+                    <label for="lab1">Lab Work 1 (0-100)</label>
+                    <input type="number" id="lab1" placeholder="0-100" min="0" max="100">
+                </div>
+                <div class="input-field">
+                    <label for="lab2">Lab Work 2 (0-100)</label>
+                    <input type="number" id="lab2" placeholder="0-100" min="0" max="100">
+                </div>
+            </div>
+
+            <div class="centered-fields">
+                <div class="input-field">
+                    <label for="lab3">Lab Work 3 (0-100)</label>
+                    <input type="number" id="lab3" placeholder="0-100" min="0" max="100">
+                </div>
+                <div class="input-field">
+                    <label for="prelim">Prelim Exam (0-100)</label>
+                    <input type="number" id="prelim" placeholder="0-100" min="0" max="100">
+                </div>
+                <div class="input-field">
+                    <label for="attendance">Attendance (0-100)</label>
+                    <input type="number" id="attendance" placeholder="0-100" min="0" max="100">
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn-add" onclick="addStudent()">➕ Add Student Record</button>
+            </div>
+        </div>
+        
+        <div class="table-section">
+            <h2>📋 Student Records Database</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Lab 1</th>
+                        <th>Lab 2</th>
+                        <th>Lab 3</th>
+                        <th>Prelim</th>
+                        <th>Attendance</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTableBody"></tbody>
+            </table>
+        </div>
+        
+        <div class="stats">
+            📊 Total Students: <strong id="totalStudents">0</strong>
+        </div>
+        
+        <div class="footer">
+            University of Perpetual Help System DALTA | Character Building is Nation Building
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
