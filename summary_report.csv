@@ -1,0 +1,31 @@
+SECTION,METRIC,VALUE
+Overview,Total Records,64016
+Overview,Global Total Sales (M),6605.91
+
+SECTION,RANK,GENRE,TOTAL_SALES_M
+Top Genres,1,Sports,1187.51
+Top Genres,2,Action,1125.89
+Top Genres,3,Shooter,995.50
+Top Genres,4,Misc,557.79
+Top Genres,5,Racing,525.75
+
+SECTION,RANK,CONSOLE,TOTAL_SALES_M
+Top Consoles,1,PS2,1027.76
+Top Consoles,2,X360,859.79
+Top Consoles,3,PS3,839.70
+Top Consoles,4,PS,546.25
+Top Consoles,5,PS4,539.92
+
+SECTION,RANK,PUBLISHER,TOTAL_SALES_M
+Top Publishers,1,"Activision",722.77
+Top Publishers,2,"Electronic Arts",644.13
+Top Publishers,3,"EA Sports",485.66
+Top Publishers,4,"Ubisoft",462.57
+Top Publishers,5,"THQ",320.89
+
+SECTION,RANK,TITLE,CONSOLE,GENRE,PUBLISHER,TOTAL_SALES_M,RELEASE_DATE
+Top Games,1,"Grand Theft Auto V",PS3,Action,"Rockstar Games",20.32,2013-09-17
+Top Games,2,"Grand Theft Auto V",PS4,Action,"Rockstar Games",19.39,2014-11-18
+Top Games,3,"Grand Theft Auto: Vice City",PS2,Action,"Rockstar Games",16.15,2002-10-28
+Top Games,4,"Grand Theft Auto V",X360,Action,"Rockstar Games",15.86,2013-09-17
+Top Games,5,"Call of Duty: Black Ops 3",PS4,Shooter,"Activision",15.09,2015-11-06

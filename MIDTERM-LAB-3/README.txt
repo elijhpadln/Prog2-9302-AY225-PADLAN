@@ -1,0 +1,4 @@
+Program Logic Explanations
+MP02 – Display First 10 Rows: Reads the CSV line-by-line, stores the header and up to 10 data rows in an ArrayList (Java) / array (JS), then calculates dynamic column widths and renders a formatted ASCII table. Stops reading after 10 rows are collected for efficiency.
+MP03 – Search for a Keyword: Reads every data row and checks each field for the user's keyword using case-insensitive contains() / includes(). Matching rows are collected along with which column(s) triggered the match, then displayed in a table with an extra "Matched In" column showing where the keyword appeared.
+MP04 – Count Valid Rows: Iterates over all data rows and validates each one — a row is valid only if it has the same field count as the header and contains no empty/whitespace fields. Counts valid vs. invalid rows, calculates a data completeness percentage, and displays a detailed table of invalid rows with [EMPTY] markers on the problematic fields.
